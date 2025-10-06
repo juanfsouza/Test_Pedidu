@@ -2,6 +2,17 @@
 
 namespace App\Domain\Entities;
 
+use DateTime;
+
+/**
+ * Product Entity
+ * 
+ * Represents a product in the domain with business rules and validation.
+ * This entity encapsulates all product-related business logic and ensures
+ * data integrity through validation in setters.
+ * 
+ * @package App\Domain\Entities
+ */
 class Product
 {
     private int $id;
@@ -13,12 +24,22 @@ class Product
     private ?DateTime $updatedAt = null;
     private ?DateTime $deletedAt = null;
 
+    /**
+     * Product constructor
+     * 
+     * @param int $id Product ID
+     * @param string $name Product name (max 255 chars)
+     * @param string $category Product category (max 255 chars)
+     * @param string $status Product status (ACTIVE or INACTIVE)
+     * @param int $quantity Product quantity (must be >= 0)
+     * @throws \InvalidArgumentException If validation fails
+     */
     public function __construct(int $id, string $name, string $category, string $status, int $quantity)
     {
         $this->id = $id;
-        $this->name = $name;
-        $this->category = $category;
-        $this->status = $status;
+        $this->setName($name);
+        $this->setCategory($category);
+        $this->setStatus($status);
         $this->setQuantity($quantity);
     }
 
@@ -39,17 +60,29 @@ class Product
 
     public function setName(string $name): void
     {
-        $this->name = $name;
+        if (empty(trim($name))) {
+            throw new \InvalidArgumentException('O nome do produto não pode estar vazio');
+        }
+        if (strlen($name) > 255) {
+            throw new \InvalidArgumentException('O nome do produto não pode ter mais de 255 caracteres');
+        }
+        $this->name = trim($name);
     }
 
     public function getCategory(): string
     {
-        return $this->category
+        return $this->category;
     }
 
     public function setCategory(string $category): void
     {
-        $this->category = $category;
+        if (empty(trim($category))) {
+            throw new \InvalidArgumentException('A categoria do produto não pode estar vazia');
+        }
+        if (strlen($category) > 255) {
+            throw new \InvalidArgumentException('A categoria do produto não pode ter mais de 255 caracteres');
+        }
+        $this->category = trim($category);
     }
 
     public function getStatus(): string
@@ -59,6 +92,10 @@ class Product
 
     public function setStatus(string $status): void
     {
+        $validStatuses = ['ACTIVE', 'INACTIVE'];
+        if (!in_array($status, $validStatuses)) {
+            throw new \InvalidArgumentException('Status deve ser ACTIVE ou INACTIVE');
+        }
         $this->status = $status;
     }
 
@@ -83,11 +120,6 @@ class Product
     public function setCreatedAt(DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
-    }
-
-    public function getUpdatedAt(): ?DateTime
-    {
-        return $this->updatedAt;
     }
 
     public function getUpdatedAt(): ?DateTime

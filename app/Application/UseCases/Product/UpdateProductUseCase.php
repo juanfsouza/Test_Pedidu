@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\UseCases;
+namespace App\Application\UseCases\Product;
 
 use App\Domain\Entities\Product;
 use App\Domain\Repositories\ProductRepositoryInterface;
@@ -21,13 +21,6 @@ class UpdateProductUseCase
         Chama ex $repository->save($product)
         Retorna a entidade atualizada
         Está ótimo, a estrutura é perfeita — mas aqui vão observações:
-
-Melhorar segurança de atualização parcial:
-Se name, category ou status não vierem no $data, seu código quebrará.
-O ideal seria atualizar somente os campos enviados.
-(Exemplo: if (isset($data['name'])) { $product->setName($data['name']); })
-
-Validação de status:
     */
     
     public function execute(int $id, array $data): Product

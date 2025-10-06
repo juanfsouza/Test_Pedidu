@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\UseCases;
+namespace App\Application\UseCases\Product;
 
 use App\Domain\Entities\Product;
 use App\Domain\Repositories\ProductRepositoryInterface;
@@ -24,7 +24,7 @@ class CreateProductUseCase
     public function createProduct(array $data): Product
     {
         $product = new Product(
-            $data?['id'], 
+            $data['id'] ?? 0,
             $data['name'], 
             $data['category'], 
             $data['status'], 
@@ -34,6 +34,11 @@ class CreateProductUseCase
         $this->validate($product);
 
         return $this->repo->save($product);
+    }
+
+    public function execute(array $data): Product
+    {
+        return $this->createProduct($data);
     }
 
     public function validate(Product $product): void
