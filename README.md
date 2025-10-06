@@ -2,18 +2,21 @@
 
 API REST para gerenciamento de produtos com integração ao IBGE, desenvolvida em Laravel com Clean Architecture.
 
-## 🚀 Como Executar
+<img width="1145" height="691" alt="Screenshot_4" src="https://github.com/user-attachments/assets/8b2737e6-3125-4767-bf37-50f040c18b07" />
 
-### Pré-requisitos
-- PHP 8.2+
-- Composer
-- MySQL/PostgreSQL/SQLite
+<img width="1135" height="625" alt="Screenshot_5" src="https://github.com/user-attachments/assets/e273fe8a-6731-490f-8f48-6000b16a73f3" />
 
-### Instalação
+<img width="1129" height="599" alt="Screenshot_6" src="https://github.com/user-attachments/assets/50c2a6bc-78ca-4730-90c2-316f5e183f85" />
+
+<img width="1175" height="592" alt="Screenshot_7" src="https://github.com/user-attachments/assets/ace67ac2-49b9-479e-9cd6-e52a1f4f1695" />
+
+<img width="1149" height="576" alt="Screenshot_8" src="https://github.com/user-attachments/assets/3a549cc1-3a7f-46c1-ad3f-02a8157ade7c" />
+
+### Instalação e executar
 
 1. **Clone o repositório**
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/juanfsouza/Test_Pedidu.git
 cd test_tecnico
 ```
 
