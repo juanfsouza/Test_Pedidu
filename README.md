@@ -12,6 +12,9 @@ API REST para gerenciamento de produtos com integração ao IBGE, desenvolvida e
 
 <img width="1149" height="576" alt="Screenshot_8" src="https://github.com/user-attachments/assets/3a549cc1-3a7f-46c1-ad3f-02a8157ade7c" />
 
+<img width="1044" height="679" alt="Screenshot_4" src="https://github.com/user-attachments/assets/61f65e33-784f-4249-ae42-9da47c6f5565" />
+
+
 ### Instalação e executar
 
 1. **Clone o repositório**
