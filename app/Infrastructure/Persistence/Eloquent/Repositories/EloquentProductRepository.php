@@ -23,6 +23,10 @@ class EloquentProductRepository implements ProductRepositoryInterface
 
         // Atualiza o ID na entidade do domínio
         $product->setId($model->id);
+        
+        // Mapeia as datas de volta para a entidade
+        $product->setCreatedAt($model->created_at);
+        $product->setUpdatedAt($model->updated_at);
 
         return $product;
     }
@@ -32,13 +36,16 @@ class EloquentProductRepository implements ProductRepositoryInterface
     {
         $models = ProductModel::all();
         return $models->map(function ($model) {
-            return new Product(
+            $product = new Product(
                 $model->id,
                 $model->name,
                 $model->category,
                 $model->status,
                 $model->quantity
             );
+            $product->setCreatedAt($model->created_at);
+            $product->setUpdatedAt($model->updated_at);
+            return $product;
         })->toArray();
     }
 
@@ -49,13 +56,18 @@ class EloquentProductRepository implements ProductRepositoryInterface
 
         if (!$model) return null;
 
-        return new Product(
+        $product = new Product(
             $model->id,
             $model->name,
             $model->category,
             $model->status,
             $model->quantity
         );
+        
+        $product->setCreatedAt($model->created_at);
+        $product->setUpdatedAt($model->updated_at);
+        
+        return $product;
     }
 
     // Deleta um produto
