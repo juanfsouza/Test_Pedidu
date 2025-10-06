@@ -1,6 +1,6 @@
 # API de Loja - Teste Técnico
 
-API REST para gerenciamento de produtos com integração ao IBGE, desenvolvida em Laravel com Clean Architecture.
+API REST para gerenciamento de produtos com integração ao IBGE, desenvolvida em Laravel.
 
 <img width="1145" height="691" alt="Screenshot_4" src="https://github.com/user-attachments/assets/8b2737e6-3125-4767-bf37-50f040c18b07" />
 
@@ -17,7 +17,7 @@ API REST para gerenciamento de produtos com integração ao IBGE, desenvolvida e
 1. **Clone o repositório**
 ```bash
 git clone https://github.com/juanfsouza/Test_Pedidu.git
-cd test_tecnico
+cd Test_Pedidu
 ```
 
 2. **Instale as dependências**
@@ -34,12 +34,12 @@ php artisan key:generate
 4. **Configure o banco de dados**
 Edite o arquivo `.env` com suas configurações de banco:
 ```env
-DB_CONNECTION=mysql
+DB_CONNECTION=sqlite
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=loja_api
-DB_USERNAME=seu_usuario
-DB_PASSWORD=sua_senha
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=123
 ```
 
 5. **Execute as migrations**

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\FetchCitiesFromIbgeController;
+use App\Presentation\Controllers\ProductController;
+use App\Presentation\Controllers\FetchCitiesFromIbgeController;
 
 Route::prefix('products')->group(function () {
     Route::get('/', [ProductController::class, 'list']);      

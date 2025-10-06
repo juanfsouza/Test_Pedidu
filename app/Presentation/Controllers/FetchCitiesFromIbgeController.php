@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Presentation\Controllers;
 
 use App\Application\UseCases\Ibge\FetchCitiesFromIbgeUseCase;
 use App\Application\DTOs\CityResponseDTO;
